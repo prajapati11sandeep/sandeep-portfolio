@@ -3,6 +3,9 @@
 	width: auto;
 	overflow: hidden;
 	background-color: $darkColor;
+	@include devices("mobile") {
+		height: 100vh;
+	}
 	ul {
 		height: 100%;
 		width: auto;

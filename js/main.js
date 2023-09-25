@@ -124,6 +124,10 @@ window.addEventListener("DOMContentLoaded", () => {
 				menuOut.restart();
 			}
 		});
+
+		// gsap.set(".sandeep", {
+		// 	xPercent: -innerHeight / 2,
+		// });
 	});
 
 	const loadTl = gsap.timeline({
@@ -140,7 +144,8 @@ window.addEventListener("DOMContentLoaded", () => {
 			trigger: ".projects_section",
 			pin: true,
 			scrub: 0.1,
-			end: "+=1000",
+			end: "+=3000",
+			pinSpacer: false,
 		},
 	});
 

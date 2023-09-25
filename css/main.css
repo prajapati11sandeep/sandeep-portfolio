@@ -222,6 +222,7 @@ ul {
   left: 0;
   gap: 4rem;
   z-index: 2;
+  text-transform: uppercase;
 }
 @media (max-width: 61.999rem) {
   .hero_section .hero_heading {
@@ -239,6 +240,7 @@ ul {
 .hero_section .hero_heading .hero_heading_text {
   display: block;
   width: 100%;
+  text-transform: uppercase;
 }
 .hero_section .hero_image {
   height: calc(100% - 1rem);
@@ -467,6 +469,11 @@ ul {
   width: auto;
   overflow: hidden;
   background-color: #141415;
+}
+@media (max-width: 35.999rem) {
+  .projects_section {
+    height: 100vh;
+  }
 }
 .projects_section ul {
   height: 100%;

@@ -27,6 +27,7 @@
 		left: 0;
 		gap: $spacing/2 + $sizeUnit;
 		z-index: 2;
+		text-transform: uppercase;
 		@include devices("tablet") {
 			font-size: 10rem;
 			gap: $spacing/3 + $sizeUnit;
@@ -39,6 +40,7 @@
 		.hero_heading_text {
 			display: block;
 			width: 100%;
+			text-transform: uppercase;
 		}
 	}
 	.hero_image {
