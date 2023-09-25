@@ -1,0 +1,31 @@
+@mixin devices($breakpoint) {
+	@if $breakpoint == "mobile" {
+		@media (max-width: $mobile) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == "mobileLandscape" {
+		@media (max-width: $mobileLandscape) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == "tablet" {
+		@media (max-width: $tablet) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == "desktop" {
+		@media (max-width: $desktop) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == "largeDesktop" {
+		@media (max-width: $largeDesktop) {
+			@content;
+		}
+	}
+}

@@ -1,0 +1,33 @@
+@import "./variables";
+@import "./mediaQuery";
+@import "./reset";
+@import "./animation";
+
+@import "./header";
+
+@import "./heroSection";
+@import "./about";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+@media (prefers-reduced-motion: no-preference) {
+	:root {
+		scroll-behavior: smooth;
+	}
+}
+body {
+	margin: 0;
+	font-family: $fontFamily;
+	font-size: $textSize + $sizeUnit;
+	font-weight: $fontWeight;
+	line-height: $lineHeight;
+	color: $bodyColor;
+	background-color: $bodyBg;
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: rgba(14, 14, 14, 0);
+	scroll-behavior: smooth;
+	opacity: 0;
+}

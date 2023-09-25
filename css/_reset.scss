@@ -1,0 +1,15 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a,
+button {
+	text-decoration: none;
+	background-color: transparent;
+	cursor: pointer;
+	border: 0;
+	color: $bodyColor;
+	font-size: $textSize + $sizeUnit;
+}

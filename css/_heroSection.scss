@@ -1,0 +1,121 @@
+.hero_section {
+	position: relative;
+	height: 100vh;
+	max-height: 100vh;
+	align-items: center;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	overflow: hidden;
+	background-image: url(../assets/bg.png);
+	background-size: 20%;
+	background-repeat: repeat;
+	background-position: center;
+	@include devices("mobile") {
+		background-size: 100%;
+	}
+	.hero_heading {
+		display: flex;
+		align-items: flex-start;
+		color: $bodyColor;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 20rem;
+		white-space: nowrap;
+		margin: 0;
+		left: 0;
+		gap: $spacing/2 + $sizeUnit;
+		z-index: 2;
+		@include devices("tablet") {
+			font-size: 10rem;
+			gap: $spacing/3 + $sizeUnit;
+		}
+		@include devices("mobileLandscape") {
+			font-size: 5rem;
+			gap: $spacing/4 + $sizeUnit;
+			top: 11 + $sizeUnit;
+		}
+		.hero_heading_text {
+			display: block;
+			width: 100%;
+		}
+	}
+	.hero_image {
+		height: calc(100% - 1rem);
+		width: auto;
+		z-index: 5;
+		user-select: none;
+		pointer-events: none;
+		@include devices("tablet") {
+			height: calc(90% - 1rem);
+		}
+		@include devices("mobileLandscape") {
+			height: calc(65% - 1rem);
+		}
+	}
+	.hero_designation {
+		position: absolute;
+		left: 2 + $sizeUnit;
+		bottom: 2 + $sizeUnit;
+		font-size: 1.5 + $sizeUnit;
+		z-index: 5;
+		@include devices("mobileLandscape") {
+			font-size: 1rem;
+			top: 16 + $sizeUnit;
+			right: 0;
+			text-align: center;
+		}
+	}
+	.scroll_down {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		height: 20 + $sizeUnit;
+		width: 20 + $sizeUnit;
+		border: 0.01 + $sizeUnit dashed rgba($bodyColor, 0.3);
+		border-radius: 20 + $sizeUnit;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		z-index: 5;
+		transform: translate(0%, 50%);
+		overflow: hidden;
+		@include devices("mobileLandscape") {
+			left: 0;
+			margin: 0 auto;
+		}
+		.scroll_down_arrow {
+			opacity: 1;
+			font-size: 1 + $sizeUnit;
+			padding-top: 2 + $sizeUnit;
+			@include devices("mobileLandscape") {
+				font-size: 0.5 + $sizeUnit;
+			}
+			.bi-arrow-down {
+				position: absolute;
+				font-size: 3 + $sizeUnit;
+				left: 0;
+				top: 0%;
+				height: 100%;
+				width: 100%;
+				text-align: center;
+				@include devices("mobileLandscape") {
+					font-size: 2 + $sizeUnit;
+				}
+			}
+			.scroll_down_text {
+				position: absolute;
+				top: calc(50% - 2rem);
+				left: 0;
+				right: 0;
+				text-align: center;
+				transform: translateY(-100%);
+				font-size: 1.5 + $sizeUnit;
+				@include devices("mobileLandscape") {
+					font-size: 1 + $sizeUnit;
+				}
+			}
+		}
+	}
+}
