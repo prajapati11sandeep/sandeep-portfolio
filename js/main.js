@@ -131,6 +131,19 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 	loadTl.add(onLoadAnimation());
 
+	let projectsBox = gsap.utils.toArray(".projects_panel");
+
+	gsap.to(projectsBox, {
+		xPercent: -100 * (projectsBox.length - 1),
+		ease: "none",
+		scrollTrigger: {
+			trigger: ".projects_section",
+			pin: true,
+			scrub: 0.1,
+			end: "+=1000",
+		},
+	});
+
 	gsap.fromTo("body", { opacity: 0 }, { opacity: 1 });
 });
 
@@ -181,11 +194,11 @@ function onLoadAnimation() {
 	return hero_image;
 }
 function heroScrollAnimation() {
-	const hero = gsap.timeline();
-	hero
+	const scroll = gsap.timeline();
+	scroll
 		.to([".hero_image, .scroll_down, .hero_designation, .hero_heading"], {
 			autoAlpha: 0,
-			y: 100,
+			y: 300,
 			duration: 0.5,
 			scrollTrigger: {
 				trigger: ".hero_section",
@@ -220,14 +233,15 @@ function heroScrollAnimation() {
 		)
 		.fromTo(
 			".about_section_icon",
-			{ rotate: -45 },
+			{ rotate: -45, scale: 0 },
 			{
 				rotate: 0,
+				scale: 1,
 				scrollTrigger: {
 					trigger: ".about_section",
 					start: "top center",
 					end: "90% center",
-					scrub: 0,
+					scrub: 0.5,
 					toggleActions: "play pause play reverse",
 					invalidateOnRefresh: false,
 					// markers: true,
@@ -244,7 +258,7 @@ function heroScrollAnimation() {
 					trigger: ".about_section",
 					start: "top top",
 					end: "100% top",
-					scrub: 0,
+					scrub: 0.5,
 					toggleActions: "play pause play reverse",
 					invalidateOnRefresh: false,
 					// markers: true,
@@ -252,5 +266,5 @@ function heroScrollAnimation() {
 			},
 			"start"
 		);
-	return hero;
+	return scroll;
 }
