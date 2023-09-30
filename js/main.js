@@ -217,7 +217,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			{ width: "0" },
 			{
 				width: "100%",
-				duration: 3,
+				duration: 5,
 			},
 			0
 		);
@@ -237,15 +237,15 @@ window.addEventListener("DOMContentLoaded", () => {
 	tl.progress(1).progress(0).play();
 
 	//On hover toggling classes
-	$slides.forEach((element) => {
-		const hoverElement = element.querySelector(".projects_section_project");
-		hoverElement.addEventListener("mouseenter", function () {
-			tl.pause();
-		});
-		hoverElement.addEventListener("mouseleave", function () {
-			tl.resume();
-		});
-	});
+	// $slides.forEach((element) => {
+	// 	const hoverElement = element.querySelector(".projects_section_project");
+	// 	hoverElement.addEventListener("mouseenter", function () {
+	// 		tl.pause();
+	// 	});
+	// 	hoverElement.addEventListener("mouseleave", function () {
+	// 		tl.resume();
+	// 	});
+	// });
 
 	gsap.fromTo("body", { opacity: 0 }, { opacity: 1 });
 });
@@ -298,8 +298,6 @@ function onLoadAnimation() {
 }
 function heroScrollAnimation() {
 	const scroll = gsap.timeline();
-	let projectsBox = gsap.utils.toArray(".projects_panel");
-
 	scroll
 		.to([".hero_image, .scroll_down, .hero_designation, .hero_heading"], {
 			autoAlpha: 0,

@@ -557,18 +557,30 @@ ul {
   width: 80%;
   position: relative;
   overflow: hidden;
+  box-shadow: 0rem 0.8rem 0.6rem -0.4rem rgba(20, 20, 21, 0.8);
+  border-radius: 0.5rem;
 }
 .projects_section ul .projects_panel .projects_panel_card .projects_panel_image {
   height: 100%;
   width: 100%;
   position: relative;
 }
+.projects_section ul .projects_panel .projects_panel_card .projects_panel_image:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(20, 20, 21, 0.2);
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
 .projects_section ul .projects_panel .projects_panel_card .projects_panel_image img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  opacity: 0;
   transition: all 0.3s ease-out;
 }
 .projects_section ul .projects_panel .projects_panel_card i.bi {
@@ -622,21 +634,8 @@ ul {
 .projects_section ul .projects_panel.active .projects_panel_footer_description, .projects_section ul .projects_panel:hover .projects_panel_footer_description {
   opacity: 1;
 }
-.projects_section ul .projects_panel.active .projects_panel_card, .projects_section ul .projects_panel:hover .projects_panel_card {
-  box-shadow: 0rem 0.8rem 0.6rem -0.4rem rgba(20, 20, 21, 0.8);
-  border-radius: 0.5rem;
-}
 .projects_section ul .projects_panel.active .projects_panel_card .projects_panel_image:after, .projects_section ul .projects_panel:hover .projects_panel_card .projects_panel_image:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(20, 20, 21, 0.2);
-}
-.projects_section ul .projects_panel.active .projects_panel_card .projects_panel_image img, .projects_section ul .projects_panel:hover .projects_panel_card .projects_panel_image img {
-  opacity: 1;
+  opacity: 0;
 }
 .projects_section ul .projects_panel.active .projects_panel_card .projects_panel_progress_wrapper .projects_panel_progress, .projects_section ul .projects_panel:hover .projects_panel_card .projects_panel_progress_wrapper .projects_panel_progress {
   opacity: 1;

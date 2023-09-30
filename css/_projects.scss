@@ -76,15 +76,28 @@
 				width: 80%;
 				position: relative;
 				overflow: hidden;
+				box-shadow: 0 + $sizeUnit 0.8 + $sizeUnit 0.6 + $sizeUnit -0.4 + $sizeUnit
+					rgba($darkColor, 0.8);
+				border-radius: 0.5 + $sizeUnit;
 				.projects_panel_image {
 					height: 100%;
 					width: 100%;
 					position: relative;
+					&:after {
+						content: "";
+						position: absolute;
+						left: 0;
+						top: 0;
+						height: 100%;
+						width: 100%;
+						background-color: rgba($darkColor, 0.2);
+						opacity: 1;
+						transition: $transition;
+					}
 					& img {
 						height: 100%;
 						width: 100%;
 						object-fit: cover;
-						opacity: 0;
 						transition: $transition;
 					}
 				}
@@ -142,21 +155,9 @@
 					opacity: 1;
 				}
 				.projects_panel_card {
-					box-shadow: 0 + $sizeUnit 0.8 + $sizeUnit 0.6 + $sizeUnit -0.4 + $sizeUnit
-						rgba($darkColor, 0.8);
-					border-radius: 0.5 + $sizeUnit;
 					.projects_panel_image {
 						&:after {
-							content: "";
-							position: absolute;
-							left: 0;
-							top: 0;
-							height: 100%;
-							width: 100%;
-							background-color: rgba($darkColor, 0.2);
-						}
-						& img {
-							opacity: 1;
+							opacity: 0;
 						}
 					}
 					.projects_panel_progress_wrapper {
