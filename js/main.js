@@ -120,8 +120,10 @@ window.addEventListener("DOMContentLoaded", () => {
 			menuIsOpen = !menuIsOpen; // toggle
 			if (menuIsOpen) {
 				menuIn.restart();
+				burger.classList.add("active");
 			} else {
 				menuOut.restart();
+				burger.classList.remove("active");
 			}
 		});
 
@@ -135,19 +137,34 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 	loadTl.add(onLoadAnimation());
 
-	let projectsBox = gsap.utils.toArray(".projects_panel");
+	let links = gsap.utils.toArray(".header .header_links_list a");
+	links.forEach((a) => {
+		let element = document.querySelector(a.getAttribute("href")),
+			linkST = ScrollTrigger.create({
+				trigger: element,
+				start: "top top",
+			});
 
-	gsap.to(projectsBox, {
-		xPercent: -100 * (projectsBox.length - 1),
-		ease: "none",
-		scrollTrigger: {
-			trigger: ".projects_section",
-			pin: true,
-			scrub: 0.1,
-			end: "+=3000",
-			pinSpacer: false,
-		},
+		ScrollTrigger.create({
+			trigger: element,
+			start: "top top",
+			end: "+=100%",
+			onToggle: (self) => self.isActive && setActive(a),
+		});
+		a.addEventListener("click", (e) => {
+			e.preventDefault();
+			gsap.to(window, {
+				duration: 1,
+				scrollTo: linkST.start,
+				overwrite: "auto",
+			});
+		});
 	});
+
+	function setActive(link) {
+		links.forEach((el) => el.classList.remove("active"));
+		link.classList.add("active");
+	}
 
 	gsap.fromTo("body", { opacity: 0 }, { opacity: 1 });
 });
@@ -200,10 +217,12 @@ function onLoadAnimation() {
 }
 function heroScrollAnimation() {
 	const scroll = gsap.timeline();
+	let projectsBox = gsap.utils.toArray(".projects_panel");
+
 	scroll
 		.to([".hero_image, .scroll_down, .hero_designation, .hero_heading"], {
 			autoAlpha: 0,
-			y: 300,
+			y: 150,
 			duration: 0.5,
 			scrollTrigger: {
 				trigger: ".hero_section",
@@ -258,7 +277,7 @@ function heroScrollAnimation() {
 			".about_section_bar_inner",
 			{ x: 0, ease: Power2.easeOut },
 			{
-				x: "-=200",
+				x: "-=50%",
 				scrollTrigger: {
 					trigger: ".about_section",
 					start: "top top",
@@ -270,6 +289,17 @@ function heroScrollAnimation() {
 				},
 			},
 			"start"
-		);
+		)
+		.to(projectsBox, {
+			xPercent: -100 * (projectsBox.length - 1),
+			ease: "none",
+			scrollTrigger: {
+				trigger: ".projects_section",
+				pin: true,
+				scrub: 0.1,
+				end: "+=3000",
+				pinSpacer: false,
+			},
+		});
 	return scroll;
 }

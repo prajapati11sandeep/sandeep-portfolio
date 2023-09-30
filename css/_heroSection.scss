@@ -25,16 +25,16 @@
 		white-space: nowrap;
 		margin: 0;
 		left: 0;
-		gap: $spacing/2 + $sizeUnit;
+		gap: 4 + $sizeUnit;
 		z-index: 2;
 		text-transform: uppercase;
 		@include devices("tablet") {
 			font-size: 10rem;
-			gap: $spacing/3 + $sizeUnit;
+			gap: 2.5 + $sizeUnit;
 		}
 		@include devices("mobileLandscape") {
 			font-size: 5rem;
-			gap: $spacing/4 + $sizeUnit;
+			gap: 2 + $sizeUnit;
 			top: 11 + $sizeUnit;
 		}
 		.hero_heading_text {

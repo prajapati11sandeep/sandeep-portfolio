@@ -3,6 +3,8 @@
 	width: auto;
 	overflow: hidden;
 	background-color: $darkColor;
+	position: relative;
+	z-index: 11;
 	@include devices("mobile") {
 		height: 100vh;
 	}
@@ -14,28 +16,93 @@
 		align-items: flex-start;
 		justify-content: flex-start;
 		.projects_panel {
-			width: 100vw;
+			width: 50 + $sizeUnit;
 			height: 100%;
 			display: flex;
 			align-items: flex-start;
 			justify-content: flex-start;
+			@include devices("mobile") {
+				width: 100vw;
+			}
 			&:nth-child(even) {
 				background-color: lighten($darkColor, 10%);
 			}
 			&:nth-child(odd) {
-				background-color: lighten($darkColor, 50%);
+				background-color: lighten($darkColor, 15%);
 			}
 			.projects_section_project {
 				height: 100%;
 				width: 100%;
 				a {
-					font-size: 5vw;
 					display: flex;
+					flex-direction: column;
 					height: 100%;
 					width: 100%;
 					display: flex;
 					align-items: center;
 					justify-content: center;
+				}
+			}
+			.projects_panel_card {
+				height: 50%;
+				width: 50%;
+				position: relative;
+				border-radius: 0.5 + $sizeUnit;
+				overflow: hidden;
+				box-shadow: 0 + $sizeUnit 0.8 + $sizeUnit 0.6 + $sizeUnit -0.4 + $sizeUnit
+					rgba($darkColor, 0.8);
+				@include devices("mobile") {
+					height: 50%;
+					width: 80%;
+				}
+				.projects_panel_image {
+					height: 100%;
+					width: 100%;
+					position: relative;
+					&:after {
+						content: "";
+						position: absolute;
+						left: 0;
+						top: 0;
+						height: 100%;
+						width: 100%;
+						background-color: rgba($darkColor, 0.2);
+					}
+					& img {
+						height: 100%;
+						width: 100%;
+						object-fit: cover;
+					}
+				}
+				& i.bi {
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					background: rgba($darkColor, 0.5);
+					padding: 0.5 + $sizeUnit 1 + $sizeUnit;
+					font-size: 1.2 + $sizeUnit;
+					border-top-left-radius: 0.5 + $sizeUnit;
+				}
+			}
+			.projects_panel_footer {
+				height: auto;
+				width: 50%;
+				@include devices("mobile") {
+					width: 80%;
+				}
+				.projects_panel_footer_title {
+					text-transform: uppercase;
+					font-size: 2 + $sizeUnit;
+					margin-top: 1 + $sizeUnit;
+					margin-bottom: 1 + $sizeUnit;
+				}
+				.projects_panel_footer_description {
+					font-size: 1 + $sizeUnit;
+				}
+				.projects_panel_footer_title,
+				.projects_panel_footer_description {
+					width: 100%;
+					white-space: normal;
 				}
 			}
 		}

@@ -151,5 +151,12 @@
 				color: $bodyBg;
 			}
 		}
+		& .bi-x-lg,
+		&.active .bi-list {
+			display: none;
+		}
+		&.active .bi-x-lg {
+			display: block;
+		}
 	}
 }
