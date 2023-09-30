@@ -1,12 +1,40 @@
 .projects_section {
-	height: 100vh;
+	height: auto;
 	width: auto;
 	overflow: hidden;
-	background-color: $darkColor;
-	position: relative;
-	z-index: 11;
-	@include devices("mobile") {
-		height: 100vh;
+	background-color: lighten($darkColor, 10%);
+	.projects_section_heading {
+		font-size: 12 + $sizeUnit;
+		line-height: 75%;
+		color: $bodyColor;
+		text-transform: uppercase;
+		font-weight: bold;
+		letter-spacing: -0.8 + $sizeUnit;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		width: calc(100% - 2rem);
+		max-width: 80 + $sizeUnit;
+		height: 100%;
+		padding: 3 + $sizeUnit 0;
+		margin: 0 auto;
+		@include devices("mobileLandscape") {
+			font-size: 10 + $sizeUnit;
+		}
+		@include devices("mobile") {
+			font-size: 3 + $sizeUnit;
+			letter-spacing: 0.5 + $sizeUnit;
+			flex-direction: column;
+			gap: 1 + $sizeUnit;
+		}
+		.projects_section_count {
+			font-size: 1.5 + $sizeUnit;
+			height: 2 + $sizeUnit;
+			line-height: 100%;
+			letter-spacing: 0.5 + $sizeUnit;
+			opacity: 0.5;
+			display: inline-flex;
+		}
 	}
 	ul {
 		height: 100%;
@@ -16,16 +44,16 @@
 		align-items: flex-start;
 		justify-content: flex-start;
 		.projects_panel {
-			width: 50 + $sizeUnit;
-			height: 100%;
+			height: auto;
 			display: flex;
 			align-items: flex-start;
 			justify-content: flex-start;
-			@include devices("mobile") {
-				width: 100vw;
+			padding: 6rem 0;
+			@include devices("mobileLandscape") {
+				padding: 3rem 0;
 			}
 			&:nth-child(even) {
-				background-color: lighten($darkColor, 10%);
+				background-color: lighten($darkColor, 12%);
 			}
 			&:nth-child(odd) {
 				background-color: lighten($darkColor, 15%);
@@ -44,34 +72,20 @@
 				}
 			}
 			.projects_panel_card {
-				height: 50%;
-				width: 50%;
+				height: 20 + $sizeUnit;
+				width: 80%;
 				position: relative;
-				border-radius: 0.5 + $sizeUnit;
 				overflow: hidden;
-				box-shadow: 0 + $sizeUnit 0.8 + $sizeUnit 0.6 + $sizeUnit -0.4 + $sizeUnit
-					rgba($darkColor, 0.8);
-				@include devices("mobile") {
-					height: 50%;
-					width: 80%;
-				}
 				.projects_panel_image {
 					height: 100%;
 					width: 100%;
 					position: relative;
-					&:after {
-						content: "";
-						position: absolute;
-						left: 0;
-						top: 0;
-						height: 100%;
-						width: 100%;
-						background-color: rgba($darkColor, 0.2);
-					}
 					& img {
 						height: 100%;
 						width: 100%;
 						object-fit: cover;
+						opacity: 0;
+						transition: $transition;
 					}
 				}
 				& i.bi {
@@ -83,10 +97,24 @@
 					font-size: 1.2 + $sizeUnit;
 					border-top-left-radius: 0.5 + $sizeUnit;
 				}
+				.projects_panel_progress_wrapper {
+					height: 0.2 + $sizeUnit;
+					width: 100%;
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					background-color: rgba($bodyColor, 0.2);
+					.projects_panel_progress {
+						height: 100%;
+						width: 0%;
+						background-color: $bodyColor;
+						opacity: 0;
+					}
+				}
 			}
 			.projects_panel_footer {
 				height: auto;
-				width: 50%;
+				width: 80%;
 				@include devices("mobile") {
 					width: 80%;
 				}
@@ -98,11 +126,44 @@
 				}
 				.projects_panel_footer_description {
 					font-size: 1 + $sizeUnit;
+					opacity: 0;
+					transition: $transition;
 				}
 				.projects_panel_footer_title,
 				.projects_panel_footer_description {
 					width: 100%;
 					white-space: normal;
+				}
+			}
+
+			&.active,
+			&:hover {
+				.projects_panel_footer_description {
+					opacity: 1;
+				}
+				.projects_panel_card {
+					box-shadow: 0 + $sizeUnit 0.8 + $sizeUnit 0.6 + $sizeUnit -0.4 + $sizeUnit
+						rgba($darkColor, 0.8);
+					border-radius: 0.5 + $sizeUnit;
+					.projects_panel_image {
+						&:after {
+							content: "";
+							position: absolute;
+							left: 0;
+							top: 0;
+							height: 100%;
+							width: 100%;
+							background-color: rgba($darkColor, 0.2);
+						}
+						& img {
+							opacity: 1;
+						}
+					}
+					.projects_panel_progress_wrapper {
+						.projects_panel_progress {
+							opacity: 1;
+						}
+					}
 				}
 			}
 		}

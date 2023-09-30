@@ -126,10 +126,6 @@ window.addEventListener("DOMContentLoaded", () => {
 				burger.classList.remove("active");
 			}
 		});
-
-		// gsap.set(".sandeep", {
-		// 	xPercent: -innerHeight / 2,
-		// });
 	});
 
 	const loadTl = gsap.timeline({
@@ -165,6 +161,91 @@ window.addEventListener("DOMContentLoaded", () => {
 		links.forEach((el) => el.classList.remove("active"));
 		link.classList.add("active");
 	}
+
+	const workCarousel = new Swiper(".swiper", {
+		slidesPerView: 4,
+		spaceBetween: 0,
+		autoplay: false,
+		allowTouchMove: true,
+		pagination: {
+			el: ".swiper-pagination",
+			type: "fraction",
+		},
+		scrollbar: {
+			el: ".swiper-scrollbar",
+		},
+		breakpoints: {
+			// when window width is >= 0px
+			0: {
+				slidesPerView: 1.2,
+			},
+			// when window width is >= 800px
+			800: {
+				slidesPerView: 2.3,
+			},
+			// when window width is >= 1366px
+			1366: {
+				slidesPerView: 4,
+			},
+		},
+	});
+
+	let $slider = document.querySelector(".swiper-wrapper"),
+		$slides = $slider.querySelectorAll(".projects_panel"),
+		slideCount = $slides.length,
+		currentSlide = 1,
+		tl = gsap.timeline({
+			paused: true,
+			repeat: -1,
+			ease: "Linear.easeNone",
+		});
+
+	$slides.forEach((element, index) => {
+		const slideTL = gsap.timeline({
+			onStart: () => {
+				element.classList.add("active");
+			},
+			onComplete: prepNext,
+			onCompleteParams: [
+				"{self}",
+				index === slideCount ? $slides[0] : $slides[index],
+			],
+		});
+
+		slideTL.add("slide4fade").fromTo(
+			element.querySelector(".projects_panel_progress"),
+			{ width: "0" },
+			{
+				width: "100%",
+				duration: 3,
+			},
+			0
+		);
+
+		tl.add(slideTL, `slide${index}`);
+	});
+
+	function prepNext() {
+		$slides.forEach((el) => {
+			el.classList.remove("active");
+			el.querySelector(".projects_panel_progress").style.width = 0;
+		});
+		workCarousel.slideTo(currentSlide);
+		currentSlide = ++currentSlide % slideCount;
+	}
+
+	tl.progress(1).progress(0).play();
+
+	//On hover toggling classes
+	$slides.forEach((element) => {
+		const hoverElement = element.querySelector(".projects_section_project");
+		hoverElement.addEventListener("mouseenter", function () {
+			tl.pause();
+		});
+		hoverElement.addEventListener("mouseleave", function () {
+			tl.resume();
+		});
+	});
 
 	gsap.fromTo("body", { opacity: 0 }, { opacity: 1 });
 });
@@ -289,17 +370,6 @@ function heroScrollAnimation() {
 				},
 			},
 			"start"
-		)
-		.to(projectsBox, {
-			xPercent: -100 * (projectsBox.length - 1),
-			ease: "none",
-			scrollTrigger: {
-				trigger: ".projects_section",
-				pin: true,
-				scrub: 0.1,
-				end: "+=3000",
-				pinSpacer: false,
-			},
-		});
+		);
 	return scroll;
 }
