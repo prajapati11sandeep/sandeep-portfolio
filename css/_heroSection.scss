@@ -7,13 +7,7 @@
 	align-items: flex-end;
 	justify-content: center;
 	overflow: hidden;
-	background-image: url(../assets/images/bg.webp);
-	background-size: 20%;
-	background-repeat: repeat;
-	background-position: center;
-	@include devices("mobile") {
-		background-size: 100%;
-	}
+	background-color: rgba(darken($darkColor, 15%), 0.3);
 	.hero_heading {
 		display: flex;
 		align-items: flex-start;

@@ -8,6 +8,7 @@
 @import "./heroSection";
 @import "./about";
 @import "./projects";
+@import "./contact";
 
 *,
 *::before,
@@ -31,4 +32,11 @@ body {
 	-webkit-tap-highlight-color: rgba(14, 14, 14, 0);
 	scroll-behavior: smooth;
 	opacity: 0;
+	background-image: url(../assets/images/bg.webp);
+	background-size: 20%;
+	background-repeat: repeat;
+	background-position: center;
+	@include devices("mobile") {
+		background-size: 100%;
+	}
 }

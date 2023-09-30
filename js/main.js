@@ -143,7 +143,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 		ScrollTrigger.create({
 			trigger: element,
-			start: "top top",
+			start: "top center",
 			end: "+=100%",
 			onToggle: (self) => self.isActive && setActive(a),
 		});
@@ -235,6 +235,19 @@ window.addEventListener("DOMContentLoaded", () => {
 	}
 
 	tl.progress(1).progress(0).play();
+
+	var workPanel = gsap.timeline();
+
+	ScrollTrigger.create({
+		animation: workPanel,
+		trigger: ".projects_section",
+		start: "top center",
+	});
+	workPanel.to(".projects_panel", {
+		opacity: 1,
+		duration: 2,
+		stagger: 0.5,
+	});
 
 	//On hover toggling classes
 	// $slides.forEach((element) => {
