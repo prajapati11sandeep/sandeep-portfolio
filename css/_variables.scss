@@ -1,23 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+@import url("https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css");
 
-$fontFamily: "Roboto Condensed", sans-serif;
-$textSize: 1;
-$sizeUnit: rem;
-$fontWeight: 400;
-$lineHeight: 1.5;
-$bodyColor: #e8eaed;
-$bodyColorRGB: rgba($bodyColor, 0);
-$bodyBg: #2c2d30;
-$bodyBgRGB: rgba($bodyBg, 0);
-$spacing: 8;
-$darkColor: darken($bodyBg, 10%);
-$transition: all 0.3s ease-out;
-$black: #000;
+$theme: dark;
+
+$bodyColor: #e8eaed !default;
+$bodyColorRGB: rgba($bodyColor, 0) !default;
+$bodyBg: #2c2d30 !default;
+$bodyBgRGB: rgba($bodyBg, 0) !default;
+$darkColor: darken($bodyBg, 10%) !default;
+$black: #000 !default;
+body {
+	background-image: url(../assets/images/bg.webp);
+}
+
+@if $theme == light {
+	$bodyColor: #2c2d30;
+	$bodyColorRGB: rgba($bodyColor, 0);
+	$bodyBg: #e8eaed;
+	$bodyBgRGB: rgba($bodyBg, 0);
+	$darkColor: darken($bodyBg, 10%);
+	$black: #fff;
+	body {
+		background-image: url(../assets/images/bg-inverted.webp);
+	}
+}
+
+$fontFamily: "Roboto Condensed", sans-serif !default;
+$textSize: 1 !default;
+$sizeUnit: rem !default;
+$fontWeight: 400 !default;
+$lineHeight: 1.5 !default;
+$spacing: 8 !default;
+$transition: all 0.3s ease-out !default;
 
 //Breakpoints
-$mobile: 35.999rem;
-$mobileLandscape: 47.999rem;
-$tablet: 61.999rem;
-$desktop: 74.999rem;
-$largeDesktop: 87.499rem;
+$mobile: 35.999rem !default;
+$mobileLandscape: 47.999rem !default;
+$tablet: 61.999rem !default;
+$desktop: 74.999rem !default;
+$largeDesktop: 87.499rem !default;

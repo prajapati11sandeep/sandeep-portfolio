@@ -1,4 +1,5 @@
 @import "./variables";
+// @import "./variablesLight";
 @import "./mediaQuery";
 @import "./reset";
 @import "./animation";
@@ -32,7 +33,6 @@ body {
 	-webkit-tap-highlight-color: rgba(14, 14, 14, 0);
 	scroll-behavior: smooth;
 	opacity: 0;
-	background-image: url(../assets/images/bg.webp);
 	background-size: 20%;
 	background-repeat: repeat;
 	background-position: center;
