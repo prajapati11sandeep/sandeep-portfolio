@@ -260,6 +260,21 @@ window.addEventListener("DOMContentLoaded", () => {
 	// 	});
 	// });
 
+	const mainContent = document.querySelector("body");
+	const switchBTN = document.getElementById("switch");
+
+	function clickEvent() {
+		if (mainContent.classList.contains("body--light")) {
+			mainContent.classList.remove("body--light");
+			mainContent.classList.add("body--dark");
+		} else {
+			mainContent.classList.remove("body--dark");
+			mainContent.classList.add("body--light");
+		}
+	}
+
+	switchBTN.addEventListener("click", clickEvent);
+
 	gsap.fromTo("body", { opacity: 0 }, { opacity: 1 });
 });
 
