@@ -262,14 +262,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	const mainContent = document.querySelector("body");
 	const switchBTN = document.getElementById("switch");
+	const mainStyle = document.getElementById("main-style");
 
 	function clickEvent() {
 		if (mainContent.classList.contains("body--light")) {
 			mainContent.classList.remove("body--light");
 			mainContent.classList.add("body--dark");
+			mainStyle.href = "./css/main.css";
 		} else {
 			mainContent.classList.remove("body--dark");
 			mainContent.classList.add("body--light");
+			mainStyle.href = "./css/main-light.css";
 		}
 	}
 

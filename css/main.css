@@ -189,7 +189,7 @@ ul {
   }
 }
 .body--light #switch {
-  background-color: #ffffff;
+  background-color: #e8eaed;
   animation: clickOn 0.5s;
 }
 .body--light #switch .btn-switch {
@@ -218,130 +218,51 @@ ul {
 .body--dark #switch .bi-brightness-high {
   animation: shakeOff 0.7s;
 }
-.body .main {
-  width: 100vw;
-  height: 100vh;
+.body .theme__switch {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  position: fixed;
+  bottom: 3rem;
+  left: 0;
+  right: 0rem;
+  width: calc(100% - 2rem);
+  max-width: 80rem;
+  margin: 0 auto;
+  z-index: 10;
 }
-.body .main .text {
-  font-size: 10vw;
-  line-height: 8vw;
-  position: relative;
-}
-.body .main .text--light {
-  left: -7vw;
-  color: rgba(79, 84, 94, 0.4);
-}
-.body .main .text--dark {
-  left: 5rem;
-  color: rgba(204, 215, 234, 0.8);
-}
-@media only screen and (max-width: 1130px) {
-  .body .main .text {
-    font-size: 7rem;
-    line-height: 5.5rem;
-  }
-  .body .main .text--light {
-    left: -5rem;
-  }
-  .body .main .text--dark {
-    left: 4rem;
-  }
-}
-@media only screen and (min-width: 1800px) {
-  .body .main .text {
-    font-size: 11rem;
-    line-height: 9rem;
-  }
-  .body .main .text--light {
-    left: -8rem;
-  }
-  .body .main .text--dark {
-    left: 5.5rem;
-  }
-}
-.body .main #switch {
+.body .theme__switch #switch {
   border: none;
-  width: 15vw;
-  height: 8vw;
-  border-radius: 4vw;
+  width: 6rem;
+  height: 3rem;
+  border-radius: 20rem;
   position: absolute;
   cursor: pointer;
+  overflow: hidden;
 }
-.body .main #switch .btn-switch {
+.body .theme__switch #switch .btn-switch {
   display: block;
-  background-color: #0451fb;
-  width: 6vw;
-  height: 6vw;
-  border-radius: 3vw;
+  background-color: #000;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 20rem;
   position: absolute;
   z-index: 0;
   top: 13%;
 }
-.body .main #switch i {
-  font-size: 4vw;
+.body .theme__switch #switch i {
+  font-size: 1.2rem;
   position: absolute;
   z-index: 1;
-  top: 26%;
-  color: rgba(204, 215, 234, 0.8);
+  top: 28%;
+  color: rgba(174, 175, 178, 0.8);
 }
-.body .main #switch i.bi-brightness-high {
-  left: 15%;
+.body .theme__switch #switch i.bi-brightness-high {
+  left: 17%;
 }
-.body .main #switch i.bi-moon {
-  right: 15%;
-}
-@media only screen and (max-width: 1130px) {
-  .body .main #switch {
-    width: 10rem;
-    height: 5rem;
-    border-radius: 5rem;
-  }
-  .body .main #switch .btn-switch {
-    width: 3.8rem;
-    height: 3.8rem;
-    border-radius: 3rem;
-  }
-  .body .main #switch i {
-    font-size: 2.3rem;
-    top: 28%;
-  }
-  .body .main #switch i.bi-brightness-high {
-    left: 16%;
-  }
-  .body .main #switch i.bi-moon {
-    right: 16%;
-  }
-}
-@media only screen and (min-width: 1620px) {
-  .body .main #switch {
-    width: 15rem;
-    height: 8rem;
-    border-radius: 5rem;
-  }
-  .body .main #switch .switch-side--left, .body .main #switch .switch-side--right {
-    width: 10rem;
-    height: 8rem;
-    border-radius: 4rem;
-  }
-  .body .main #switch .btn-switch {
-    width: 6rem;
-    height: 6rem;
-    border-radius: 3vw;
-  }
-  .body .main #switch i {
-    font-size: 4rem;
-    top: 25%;
-  }
-  .body .main #switch i.bi-brightness-high {
-    left: 15.5%;
-  }
-  .body .main #switch i.bi-moon {
-    right: 15.5%;
-  }
+.body .theme__switch #switch i.bi-moon {
+  right: 17%;
 }
 
 .header {

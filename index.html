@@ -32,7 +32,8 @@
   <meta name="msapplication-config" content="./assets/images/favicons/browserconfig.xml">
   <meta name="theme-color" content="#2c2d30">
 
-  <link rel="stylesheet preload" as="style" type="text/css" crossorigin="anonymous" href="./css/main.css">
+  <link rel="stylesheet preload" as="style" type="text/css" crossorigin="anonymous" href="./css/main.css"
+    id="main-style">
 </head>
 
 <body class="body body--dark">
@@ -265,11 +266,8 @@
         </div>
       </div>
     </section>
-    <section class="main" id="main">
-      <span class="text text--light">Light</span>
-      <span class="text text--dark">Dark</span>
-
-      <button type="button" id="switch">
+    <section class="theme__switch">
+      <button type="theme__switch__button" id="switch">
         <i class="bi bi-brightness-high"></i>
         <span class="btn-switch"></span>
         <i class="bi bi-moon"></i>
