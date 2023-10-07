@@ -3,34 +3,34 @@
 	width: auto;
 	overflow: hidden;
 	.projects_section_heading {
-		font-size: 8 + $sizeUnit;
+		font-size: 8rem;
 		line-height: 75%;
-		color: $bodyColor;
+		color: var(--bodyColor);
 		text-transform: uppercase;
 		font-weight: bold;
-		letter-spacing: -0.8 + $sizeUnit;
+		letter-spacing: -0.8rem;
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
 		width: calc(100% - 2rem);
-		max-width: 80 + $sizeUnit;
+		max-width: 80rem;
 		height: 100%;
-		padding: 3 + $sizeUnit 0;
+		padding: 3rem 0;
 		margin: 0 auto;
 		@include devices("mobileLandscape") {
-			font-size: 10 + $sizeUnit;
+			font-size: 10rem;
 		}
 		@include devices("mobile") {
-			font-size: 3 + $sizeUnit;
-			letter-spacing: 0.5 + $sizeUnit;
+			font-size: 3rem;
+			letter-spacing: 0.5rem;
 			flex-direction: column;
-			gap: 1 + $sizeUnit;
+			gap: 1rem;
 		}
 		.projects_section_count {
-			font-size: 1.5 + $sizeUnit;
-			height: 2 + $sizeUnit;
+			font-size: 1.5rem;
+			height: 2rem;
 			line-height: 100%;
-			letter-spacing: 0.5 + $sizeUnit;
+			letter-spacing: 0.5rem;
 			display: inline-flex;
 		}
 	}
@@ -52,10 +52,10 @@
 				padding: 3rem 0;
 			}
 			&:nth-child(even) {
-				background-color: rgba(lighten($darkColor, 12%), 0.5);
+				background-color: var(--dark05);
 			}
 			&:nth-child(odd) {
-				background-color: rgba(lighten($darkColor, 15%), 0.5);
+				background-color: var(--dark03);
 			}
 			.projects_section_project {
 				height: 100%;
@@ -71,13 +71,12 @@
 				}
 			}
 			.projects_panel_card {
-				height: 20 + $sizeUnit;
+				height: 20rem;
 				width: 80%;
 				position: relative;
 				overflow: hidden;
-				box-shadow: 0 + $sizeUnit 0.8 + $sizeUnit 0.6 + $sizeUnit -0.4 + $sizeUnit
-					rgba($darkColor, 0.8);
-				border-radius: 0.5 + $sizeUnit;
+				box-shadow: 0rem 0.8rem 0.6 + var(--sizeUnit) -0.4rem rgba(var(--darkColor), 0.8);
+				border-radius: 0.5rem;
 				.projects_panel_image {
 					height: 100%;
 					width: 100%;
@@ -89,37 +88,37 @@
 						top: 0;
 						height: 100%;
 						width: 100%;
-						background-color: rgba($darkColor, 0.2);
+						background-color: rgba(var(--darkColor), 0.2);
 						opacity: 1;
-						transition: $transition;
+						transition: var(--transition);
 					}
 					& img {
 						height: 100%;
 						width: 100%;
 						object-fit: cover;
-						transition: $transition;
+						transition: var(--transition);
 					}
 				}
 				& i.bi {
 					position: absolute;
 					right: 0;
 					bottom: 0;
-					background: rgba($darkColor, 0.5);
-					padding: 0.5 + $sizeUnit 1 + $sizeUnit;
-					font-size: 1.2 + $sizeUnit;
-					border-top-left-radius: 0.5 + $sizeUnit;
+					background: rgba(var(--darkColor), 0.5);
+					padding: 0.5rem 1rem;
+					font-size: 1.2rem;
+					border-top-left-radius: 0.5rem;
 				}
 				.projects_panel_progress_wrapper {
-					height: 0.2 + $sizeUnit;
+					height: 0.2rem;
 					width: 100%;
 					position: absolute;
 					left: 0;
 					bottom: 0;
-					background-color: rgba($bodyColor, 0.2);
+					background-color: rgba(var(--bodyColor), 0.2);
 					.projects_panel_progress {
 						height: 100%;
 						width: 0%;
-						background-color: $bodyColor;
+						background-color: var(--bodyColor);
 						opacity: 0;
 					}
 				}
@@ -132,14 +131,14 @@
 				}
 				.projects_panel_footer_title {
 					text-transform: uppercase;
-					font-size: 2 + $sizeUnit;
-					margin-top: 1 + $sizeUnit;
-					margin-bottom: 1 + $sizeUnit;
+					font-size: 2rem;
+					margin-top: 1rem;
+					margin-bottom: 1rem;
 				}
 				.projects_panel_footer_description {
-					font-size: 1 + $sizeUnit;
+					font-size: 1rem;
 					opacity: 0;
-					transition: $transition;
+					transition: var(--transition);
 					@include devices("tablet") {
 						opacity: 1;
 					}

@@ -6,17 +6,20 @@ $color-text-dark: rgba(#4f545e, 0.9);
 $color-text-light: rgba(#aeafb2, 0.8);
 $color-switch-button: #000;
 
-.body {
-	//start animations & add colors
-	&--light {
+html[data-theme="dark"] {
+	.body {
+		//start animations & add colors
 		#switch {
 			background-color: $color-switch-light;
 			animation: clickOn 0.5s;
+			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
+				inset 0 -1px 0 rgba(255, 255, 255, 0.15);
 
 			.btn-switch {
 				right: auto;
 				left: 9%;
 				animation: animationClickOn 0.7s;
+				background-color: $color-switch-dark;
 			}
 
 			.bi-moon {
@@ -28,8 +31,10 @@ $color-switch-button: #000;
 			}
 		}
 	}
-	//start animations & add colors
-	&--dark {
+}
+html[data-theme="light"] {
+	.body {
+		//start animations & add colors
 		#switch {
 			background-color: $color-switch-dark;
 			animation: clickOff 0.5s;
@@ -38,6 +43,9 @@ $color-switch-button: #000;
 				left: auto;
 				right: 9%;
 				animation: animationClickOff 0.7s;
+				box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
+					inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+				background-color: $color-switch-light;
 			}
 
 			.bi-moon {
@@ -49,16 +57,18 @@ $color-switch-button: #000;
 			}
 		}
 	}
+}
 
+.body {
 	.theme__switch {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
 		justify-content: center;
 		position: fixed;
-		bottom: 3 + $sizeUnit;
+		bottom: 3rem;
 		left: 0;
-		right: 0 + $sizeUnit;
+		right: 0rem;
 		width: calc(100% - 2rem);
 		max-width: 80rem;
 		margin: 0 auto;
@@ -66,26 +76,33 @@ $color-switch-button: #000;
 
 		#switch {
 			border: none;
-			width: 6 + $sizeUnit;
-			height: 3 + $sizeUnit;
-			border-radius: 20 + $sizeUnit;
+			width: 6rem;
+			height: 3rem;
+			border-radius: 20rem;
 			position: absolute;
 			cursor: pointer;
 			overflow: hidden;
+			bottom: -1.5rem;
+			right: 0;
+			left: 0;
+			margin: 0 auto;
+			@include devices("mobileLandscape") {
+				margin-right: 0;
+			}
 
 			.btn-switch {
 				display: block;
 				background-color: $color-switch-button;
-				width: 2.2 + $sizeUnit;
-				height: 2.2 + $sizeUnit;
-				border-radius: 20 + $sizeUnit;
+				width: 2.2rem;
+				height: 2.2rem;
+				border-radius: 20rem;
 				position: absolute;
 				z-index: 0;
 				top: 13%;
 			}
 
 			i {
-				font-size: 1.2 + $sizeUnit;
+				font-size: 1.2rem;
 				position: absolute;
 				z-index: 1;
 				top: 28%;

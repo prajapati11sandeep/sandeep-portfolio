@@ -10,8 +10,8 @@ button {
 	background-color: transparent;
 	cursor: pointer;
 	border: 0;
-	color: $bodyColor;
-	font-size: $textSize + $sizeUnit;
+	color: var(--bodyColor);
+	font-size: var(--textSize) rem;
 }
 
 ul {

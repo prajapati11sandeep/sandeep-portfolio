@@ -24,12 +24,12 @@
 }
 body {
 	margin: 0;
-	font-family: $fontFamily;
-	font-size: $textSize + $sizeUnit;
-	font-weight: $fontWeight;
-	line-height: $lineHeight;
-	color: $bodyColor;
-	background-color: $bodyBg;
+	font-family: var(--fontFamily);
+	font-size: 1rem;
+	font-weight: var(--fontWeight);
+	line-height: var(--lineHeight);
+	color: var(--bodyColor);
+	background-color: var(--bodyBg);
 	-webkit-text-size-adjust: 100%;
 	-webkit-tap-highlight-color: rgba(14, 14, 14, 0);
 	scroll-behavior: smooth;

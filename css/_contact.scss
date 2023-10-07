@@ -1,5 +1,5 @@
 .contact_section {
 	height: 100vh;
-	padding: 6 + $sizeUnit 0;
-	background-color: rgba(darken($darkColor, 15%), 0.3);
+	padding: 6rem 0;
+	background-color: var(--dark03);
 }

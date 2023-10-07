@@ -7,11 +7,11 @@
 	align-items: flex-end;
 	justify-content: center;
 	overflow: hidden;
-	background-color: rgba(darken($darkColor, 15%), 0.3);
+	background-color: var(--dark03);
 	.hero_heading {
 		display: flex;
 		align-items: flex-start;
-		color: $bodyColor;
+		color: var(--bodyColor);
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
@@ -19,17 +19,17 @@
 		white-space: nowrap;
 		margin: 0;
 		left: 0;
-		gap: 4 + $sizeUnit;
+		gap: 4rem;
 		z-index: 2;
 		text-transform: uppercase;
 		@include devices("tablet") {
 			font-size: 10rem;
-			gap: 2.5 + $sizeUnit;
+			gap: 2.5rem;
 		}
 		@include devices("mobileLandscape") {
 			font-size: 5rem;
-			gap: 2 + $sizeUnit;
-			top: 11 + $sizeUnit;
+			gap: 2rem;
+			top: 11rem;
 		}
 		.hero_heading_text {
 			display: block;
@@ -52,13 +52,13 @@
 	}
 	.hero_designation {
 		position: absolute;
-		left: 2 + $sizeUnit;
-		bottom: 2 + $sizeUnit;
-		font-size: 1.5 + $sizeUnit;
+		left: 2rem;
+		bottom: 2rem;
+		font-size: 1.5rem;
 		z-index: 5;
 		@include devices("mobileLandscape") {
 			font-size: 1rem;
-			top: 16 + $sizeUnit;
+			top: 16rem;
 			right: 0;
 			text-align: center;
 		}
@@ -67,10 +67,10 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		height: 20 + $sizeUnit;
-		width: 20 + $sizeUnit;
-		border: 0.01 + $sizeUnit dashed rgba($bodyColor, 0.3);
-		border-radius: 20 + $sizeUnit;
+		height: 20rem;
+		width: 20rem;
+		border: 0.01rem dashed var(--bodyColor03);
+		border-radius: 20rem;
 		display: flex;
 		align-items: flex-start;
 		justify-content: center;
@@ -83,21 +83,21 @@
 		}
 		.scroll_down_arrow {
 			opacity: 1;
-			font-size: 1 + $sizeUnit;
-			padding-top: 2 + $sizeUnit;
+			font-size: 1rem;
+			padding-top: 2rem;
 			@include devices("mobileLandscape") {
-				font-size: 0.5 + $sizeUnit;
+				font-size: 0.5rem;
 			}
 			.bi-arrow-down {
 				position: absolute;
-				font-size: 3 + $sizeUnit;
+				font-size: 3rem;
 				left: 0;
 				top: 0%;
 				height: 100%;
 				width: 100%;
 				text-align: center;
 				@include devices("mobileLandscape") {
-					font-size: 2 + $sizeUnit;
+					font-size: 2rem;
 				}
 			}
 			.scroll_down_text {
@@ -107,9 +107,9 @@
 				right: 0;
 				text-align: center;
 				transform: translateY(-100%);
-				font-size: 1.5 + $sizeUnit;
+				font-size: 1.5rem;
 				@include devices("mobileLandscape") {
-					font-size: 1 + $sizeUnit;
+					font-size: 1rem;
 				}
 			}
 		}

@@ -260,29 +260,32 @@ window.addEventListener("DOMContentLoaded", () => {
 	// 	});
 	// });
 
-	const mainContent = document.querySelector("body");
 	const switchBTN = document.getElementById("switch");
-	const mainStyle = document.getElementById("main-style");
 
-	function clickEvent() {
-		if (mainContent.classList.contains("body--light")) {
-			mainContent.classList.remove("body--light");
-			mainContent.classList.add("body--dark");
-			mainStyle.href = "./css/main.css";
+	function toggleTheme() {
+		let getTheme = localStorage.getItem("theme");
+		if (getTheme == "dark") {
+			document.documentElement.setAttribute("data-theme", "light");
 		} else {
-			mainContent.classList.remove("body--dark");
-			mainContent.classList.add("body--light");
-			mainStyle.href = "./css/main-light.css";
+			document.documentElement.setAttribute("data-theme", "dark");
 		}
 	}
-
-	switchBTN.addEventListener("click", clickEvent);
+	toggleTheme();
+	switchBTN.addEventListener("click", () => {
+		let getTheme = localStorage.getItem("theme");
+		if (getTheme == "dark") {
+			localStorage.setItem("theme", "light");
+		} else {
+			localStorage.setItem("theme", "dark");
+		}
+		toggleTheme();
+	});
 
 	gsap.fromTo("body", { opacity: 0 }, { opacity: 1 });
 });
 
 //Animations after page load
-heroScrollAnimation();
+ScrollAnimation();
 
 function onLoadAnimation() {
 	const hero_image = gsap.timeline();
@@ -327,7 +330,7 @@ function onLoadAnimation() {
 		);
 	return hero_image;
 }
-function heroScrollAnimation() {
+function ScrollAnimation() {
 	const scroll = gsap.timeline();
 	scroll
 		.to([".hero_image, .scroll_down, .hero_designation, .hero_heading"], {
@@ -399,6 +402,17 @@ function heroScrollAnimation() {
 				},
 			},
 			"start"
-		);
+		)
+		.to("#switch", {
+			marginRight: "0",
+			scrollTrigger: {
+				start: 0,
+				end: 500,
+				scrub: 0.3,
+				toggleActions: "play pause play reverse",
+				invalidateOnRefresh: false,
+				// markers: true,
+			},
+		});
 	return scroll;
 }
