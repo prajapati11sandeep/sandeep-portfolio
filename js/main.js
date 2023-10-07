@@ -236,19 +236,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	tl.progress(1).progress(0).play();
 
-	var workPanel = gsap.timeline();
-
-	ScrollTrigger.create({
-		animation: workPanel,
-		trigger: ".projects_section",
-		start: "top center",
-	});
-	workPanel.to(".projects_panel", {
-		opacity: 1,
-		duration: 2,
-		stagger: 0.5,
-	});
-
 	//On hover toggling classes
 	// $slides.forEach((element) => {
 	// 	const hoverElement = element.querySelector(".projects_section_project");
