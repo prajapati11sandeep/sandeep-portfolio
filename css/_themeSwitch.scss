@@ -60,6 +60,15 @@ html[data-theme="dark"] {
 		align-items: center;
 		justify-content: center;
 		position: relative;
+		&:hover,
+		&:focus-visible {
+			.btn-switch {
+				background-color: var(--bodyColor);
+			}
+			i {
+				color: var(--bodyBg);
+			}
+		}
 
 		.btn-switch {
 			display: block;

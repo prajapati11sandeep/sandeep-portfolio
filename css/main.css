@@ -223,6 +223,12 @@ html[data-theme=dark] #switch .bi-brightness-high {
   justify-content: center;
   position: relative;
 }
+.theme__switch #switch:hover .btn-switch, .theme__switch #switch:focus-visible .btn-switch {
+  background-color: var(--bodyColor);
+}
+.theme__switch #switch:hover i, .theme__switch #switch:focus-visible i {
+  color: var(--bodyBg);
+}
 .theme__switch #switch .btn-switch {
   display: block;
   width: 100%;
@@ -374,7 +380,7 @@ html[data-theme=dark] #switch .bi-brightness-high {
   opacity: 0;
   width: 0;
 }
-.header .header_links .header_links_list li a.active::after, .header .header_links .header_links_list li a:hover::after {
+.header .header_links .header_links_list li a.active::after, .header .header_links .header_links_list li a:hover::after, .header .header_links .header_links_list li a:focus-visible::after {
   opacity: 1;
   width: 100%;
 }
@@ -401,7 +407,7 @@ html[data-theme=dark] #switch .bi-brightness-high {
   justify-content: center;
   padding: 0 2rem;
 }
-.header .header_cta a:hover {
+.header .header_cta a:hover, .header .header_cta a:focus-visible {
   background-color: var(--bodyColor);
   color: var(--bodyBg);
 }
@@ -431,7 +437,7 @@ html[data-theme=dark] #switch .bi-brightness-high {
     background-color: var(--darkColor);
   }
 }
-.header .header_menu button:hover {
+.header .header_menu button:hover, .header .header_menu button:focus-visible {
   background-color: var(--bodyColor);
   color: var(--bodyBg);
 }
@@ -787,6 +793,15 @@ html[data-theme=dark] #switch .bi-brightness-high {
   align-items: center;
   justify-content: center;
 }
+.projects_section ul .projects_panel .projects_section_project a:focus-visible .projects_panel_footer_description {
+  opacity: 1;
+}
+.projects_section ul .projects_panel .projects_section_project a:focus-visible .projects_panel_card .projects_panel_image:after {
+  opacity: 0;
+}
+.projects_section ul .projects_panel .projects_section_project a:focus-visible .projects_panel_card .projects_panel_progress_wrapper .projects_panel_progress {
+  opacity: 1;
+}
 .projects_section ul .projects_panel .projects_panel_card {
   height: 20rem;
   width: 80%;
@@ -960,7 +975,7 @@ html[data-theme=dark] #switch .bi-brightness-high {
     padding: 1rem 1.5rem;
   }
 }
-.contact_section .contact_section_header .container_section_cta a:hover {
+.contact_section .contact_section_header .container_section_cta a:hover, .contact_section .contact_section_header .container_section_cta a:focus-visible {
   background-color: var(--bodyBg);
   color: var(--bodyColor);
 }

@@ -109,7 +109,8 @@
 						width: 0;
 					}
 					&.active,
-					&:hover {
+					&:hover,
+					&:focus-visible {
 						&::after {
 							opacity: 1;
 							width: 100%;
@@ -138,7 +139,8 @@
 			align-items: center;
 			justify-content: center;
 			padding: 0 2rem;
-			&:hover {
+			&:hover,
+			&:focus-visible {
 				background-color: var(--bodyColor);
 				color: var(--bodyBg);
 			}
@@ -164,7 +166,8 @@
 			@include devices("mobileLandscape") {
 				background-color: var(--darkColor);
 			}
-			&:hover {
+			&:hover,
+			&:focus-visible {
 				background-color: var(--bodyColor);
 				color: var(--bodyBg);
 			}

@@ -67,6 +67,23 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
+					&:focus-visible {
+						.projects_panel_footer_description {
+							opacity: 1;
+						}
+						.projects_panel_card {
+							.projects_panel_image {
+								&:after {
+									opacity: 0;
+								}
+							}
+							.projects_panel_progress_wrapper {
+								.projects_panel_progress {
+									opacity: 1;
+								}
+							}
+						}
+					}
 				}
 			}
 			.projects_panel_card {
