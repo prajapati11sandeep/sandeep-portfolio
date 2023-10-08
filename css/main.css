@@ -1003,6 +1003,12 @@ html[data-theme=dark] #switch .bi-brightness-high {
     gap: 1rem;
   }
 }
+@media (max-width: 35.999rem) {
+  .footer .footer_copyright {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}
 .footer .footer_social ul {
   display: flex;
   align-items: center;
@@ -1016,4 +1022,9 @@ html[data-theme=dark] #switch .bi-brightness-high {
 }
 .footer .footer_social ul li a {
   font-size: 1.5rem;
+}
+@media (max-width: 35.999rem) {
+  .footer .footer_social ul li a {
+    font-size: 1.1rem;
+  }
 }/*# sourceMappingURL=main.css.map */

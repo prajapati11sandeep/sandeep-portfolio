@@ -13,6 +13,12 @@
 			gap: 1rem;
 		}
 	}
+	.footer_copyright {
+		@include devices("mobile") {
+			font-size: 0.8rem;
+			text-align: center;
+		}
+	}
 	.footer_social {
 		ul {
 			display: flex;
@@ -25,6 +31,9 @@
 			li {
 				a {
 					font-size: 1.5rem;
+					@include devices("mobile") {
+						font-size: 1.1rem;
+					}
 				}
 			}
 		}
