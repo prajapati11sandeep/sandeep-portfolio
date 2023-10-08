@@ -44,14 +44,22 @@
       </div>
       <div class="header_links">
         <ul class="header_links_list">
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="javascript:void(0);" class="active" data-to="hero">Home</a></li>
+          <li><a href="javascript:void(0);" data-to="about">About</a></li>
+          <li><a href="javascript:void(0);" data-to="work">Work</a></li>
+          <li><a href="javascript:void(0);" data-to="contact">Contact</a></li>
+          <li><a href="javascript:void(0);">Get In Touch</a></li>
         </ul>
       </div>
       <div class="header_cta">
         <a href="javascript:void(0);">Get In Touch</a>
+      </div>
+      <div class="theme__switch">
+        <button type="theme__switch__button" id="switch">
+          <i class="bi bi-brightness-high"></i>
+          <span class="btn-switch"></span>
+          <i class="bi bi-moon"></i>
+        </button>
       </div>
       <div class="header_menu">
         <button>
@@ -89,7 +97,7 @@
         </h3>
         <div class="about_section_content">
           <div class="about_section_icon">
-            <i class="bi bi-arrow-up-right"></i>
+            <i class="bi bi-arrow-up-right-circle-fill"></i>
           </div>
           <div class="about_section_description">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam, ipsum, odio doloribus ipsa
@@ -250,39 +258,61 @@
     </section>
 
     <section class="contact_section" id="contact">
-      <div class="contact_section_conatiner">
+      <div class="contact_section_container">
         <div class="contact_section_header">
-          <div class="contact_section_icon">
-
-          </div>
-          <h1 class="contact_section_title"></h1>
+          <h3 class="contact_section_title">
+            <div class="contact_section_icon">
+              <i class="bi bi-arrow-up-right-circle-fill"></i>
+            </div>
+            <span>
+              Let's Work <br /> Together
+            </span>
+          </h3>
           <div class="container_section_cta">
-            <a href="javascript:void(0);"></a>
+            <a href="javascript:void(0);">Send Me A Message</a>
           </div>
         </div>
         <div class="contact_section_divider"></div>
         <div class="contact_section_footer">
-
+          Sandeep Prajapati
         </div>
       </div>
     </section>
-    <section class="theme__switch">
-      <button type="theme__switch__button" id="switch">
-        <i class="bi bi-brightness-high"></i>
-        <span class="btn-switch"></span>
-        <i class="bi bi-moon"></i>
-      </button>
-    </section>
   </main>
 
-  <footer></footer>
+  <footer class="footer">
+    <div class="footer_container">
+      <div class="footer_copyright">
+        Designed and coded by Sandeep Prajapati &copy; 2023
+      </div>
+      <div class="footer_social">
+        <ul>
+          <li>
+            <a href="#">
+              <i class="bi bi-instagram"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bi bi-github"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.26/bundled/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.22/bundled/lenis.min.js"></script>
 
   <script src="./js/main.js"></script>
 </body>

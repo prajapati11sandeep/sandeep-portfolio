@@ -6,116 +6,91 @@ $color-text-dark: rgba(#4f545e, 0.9);
 $color-text-light: rgba(#aeafb2, 0.8);
 $color-switch-button: #000;
 
-html[data-theme="dark"] {
-	.body {
-		//start animations & add colors
-		#switch {
-			background-color: $color-switch-light;
-			animation: clickOn 0.5s;
-			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
-				inset 0 -1px 0 rgba(255, 255, 255, 0.15);
-
-			.btn-switch {
-				right: auto;
-				left: 9%;
-				animation: animationClickOn 0.7s;
-				background-color: $color-switch-dark;
-			}
-
-			.bi-moon {
-				animation: rotateOn 0.7s;
-			}
-
-			.bi-brightness-high {
-				animation: shakeOn 0.7s;
-			}
-		}
-	}
-}
 html[data-theme="light"] {
-	.body {
-		//start animations & add colors
-		#switch {
-			background-color: $color-switch-dark;
-			animation: clickOff 0.5s;
+	//start animations & add colors
+	#switch {
+		animation: clickOn 0.5s;
 
-			.btn-switch {
-				left: auto;
-				right: 9%;
-				animation: animationClickOff 0.7s;
-				box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
-					inset 0 -1px 0 rgba(255, 255, 255, 0.15);
-				background-color: $color-switch-light;
-			}
+		.bi-moon {
+			animation: rotateOn 0.7s;
+			opacity: 0;
+		}
 
-			.bi-moon {
-				animation: rotateOff 0.7s;
-			}
+		.bi-brightness-high {
+			animation: shakeOn 0.7s;
+			opacity: 1;
+		}
+	}
+}
+html[data-theme="dark"] {
+	//start animations & add colors
+	#switch {
+		animation: clickOff 0.5s;
 
-			.bi-brightness-high {
-				animation: shakeOff 0.7s;
-			}
+		.bi-moon {
+			animation: rotateOff 0.7s;
+			opacity: 1;
+		}
+
+		.bi-brightness-high {
+			animation: shakeOff 0.7s;
+			opacity: 0;
 		}
 	}
 }
 
-.body {
-	.theme__switch {
+.theme__switch {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+	position: relative;
+	height: 100%;
+	width: 3.4rem;
+
+	#switch {
+		border: none;
+		width: 100%;
+		height: 100%;
+		border-radius: 0.5rem;
+		cursor: pointer;
+		overflow: hidden;
+		margin-left: auto;
 		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
+		align-items: center;
 		justify-content: center;
-		position: fixed;
-		bottom: 3rem;
-		left: 0;
-		right: 0rem;
-		width: calc(100% - 2rem);
-		max-width: 80rem;
-		margin: 0 auto;
-		z-index: 10;
+		position: relative;
 
-		#switch {
-			border: none;
-			width: 6rem;
-			height: 3rem;
-			border-radius: 20rem;
+		.btn-switch {
+			display: block;
+			width: 100%;
+			height: 100%;
+			border-radius: 0.5rem;
 			position: absolute;
-			cursor: pointer;
-			overflow: hidden;
-			bottom: -1.5rem;
-			right: 0;
 			left: 0;
-			margin: 0 auto;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			background-color: var(--bodyBg);
+			transition: var(--transition);
 			@include devices("mobileLandscape") {
-				margin-right: 0;
+				background-color: transparent;
 			}
+		}
 
-			.btn-switch {
-				display: block;
-				background-color: $color-switch-button;
-				width: 2.2rem;
-				height: 2.2rem;
-				border-radius: 20rem;
-				position: absolute;
-				z-index: 0;
-				top: 13%;
-			}
-
-			i {
-				font-size: 1.2rem;
-				position: absolute;
-				z-index: 1;
-				top: 28%;
-				color: $color-text-light;
-
-				&.bi-brightness-high {
-					left: 17%;
-				}
-
-				&.bi-moon {
-					right: 17%;
-				}
-			}
+		i {
+			font-size: 1.2rem;
+			z-index: 1;
+			color: var(--bodyColor);
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 	}
 }

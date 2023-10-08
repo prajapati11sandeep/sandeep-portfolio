@@ -1,11 +1,10 @@
+// const lenis = new Lenis();
+// function raf(time) {
+// 	lenis.raf(time);
+// 	requestAnimationFrame(raf);
+// }
+// requestAnimationFrame(raf);
 window.addEventListener("DOMContentLoaded", () => {
-	// const lenis = new Lenis();
-	// lenis.on("scroll", ScrollTrigger.update);
-	// gsap.ticker.add((time) => {
-	// 	lenis.raf(time * 1000);
-	// });
-	// gsap.ticker.lagSmoothing(0);
-
 	gsap.registerPlugin(ScrollTrigger);
 	const checkMedia = gsap.matchMedia();
 
@@ -35,10 +34,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	const header_nav = gsap.timeline();
 	header_nav.from(
-		[".header_links_list li, .header_logo, .header_cta, .header_menu"],
+		[
+			".header_links_list li, .header_logo, .header_cta, .header_menu, .theme__switch",
+		],
 		{
-			duration: 0.8,
 			opacity: 0,
+			duration: 0.8,
 			y: -100,
 			stagger: 0.2,
 			delay: 0.5,
@@ -135,26 +136,27 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	let links = gsap.utils.toArray(".header .header_links_list a");
 	links.forEach((a) => {
-		let element = document.querySelector(a.getAttribute("href")),
-			linkST = ScrollTrigger.create({
-				trigger: element,
+		if (a.dataset.to) {
+			let element = a.dataset.to;
+			let linkST = ScrollTrigger.create({
+				trigger: `#${element}`,
 				start: "top top",
 			});
-
-		ScrollTrigger.create({
-			trigger: element,
-			start: "top center",
-			end: "+=100%",
-			onToggle: (self) => self.isActive && setActive(a),
-		});
-		a.addEventListener("click", (e) => {
-			e.preventDefault();
-			gsap.to(window, {
-				duration: 1,
-				scrollTo: linkST.start,
-				overwrite: "auto",
+			ScrollTrigger.create({
+				trigger: `#${element}`,
+				start: "top center",
+				end: "+=100%",
+				onToggle: (self) => self.isActive && setActive(a),
 			});
-		});
+			a.addEventListener("click", (e) => {
+				e.preventDefault();
+				gsap.to(window, {
+					duration: 1,
+					scrollTo: linkST.start,
+					overwrite: "auto",
+				});
+			});
+		}
 	});
 
 	function setActive(link) {
@@ -356,6 +358,25 @@ function ScrollAnimation() {
 			}
 		)
 		.fromTo(
+			[".projects_section_heading span"],
+			{ opacity: 0, y: 200 },
+			{
+				opacity: 1,
+				y: 0,
+				duration: 0.8,
+				stagger: 0.2,
+				scrollTrigger: {
+					trigger: ".projects_section",
+					start: "top center",
+					end: "center center",
+					scrub: 0.3,
+					toggleActions: "play pause play reverse",
+					invalidateOnRefresh: false,
+					// markers: true,
+				},
+			}
+		)
+		.fromTo(
 			".about_section_icon",
 			{ rotate: -45, scale: 0 },
 			{
@@ -390,16 +411,44 @@ function ScrollAnimation() {
 			},
 			"start"
 		)
-		.to("#switch", {
-			marginRight: "0",
-			scrollTrigger: {
-				start: 0,
-				end: 500,
-				scrub: 0.3,
-				toggleActions: "play pause play reverse",
-				invalidateOnRefresh: false,
-				// markers: true,
+		.fromTo(
+			[
+				".contact_section_title span,.container_section_cta,.contact_section_footer",
+			],
+			{ opacity: 0, y: 200 },
+			{
+				opacity: 1,
+				y: 0,
+				duration: 0.8,
+				stagger: 0.2,
+				scrollTrigger: {
+					trigger: ".contact_section",
+					start: "top bottom",
+					end: "bottom bottom",
+					scrub: 0.3,
+					toggleActions: "play pause play reverse",
+					invalidateOnRefresh: false,
+					// markers: true,
+				},
+			}
+		)
+		.fromTo(
+			".contact_section_icon",
+			{ rotate: -45, scale: 0 },
+			{
+				rotate: 0,
+				scale: 1,
+				scrollTrigger: {
+					trigger: ".contact_section",
+					start: "top center",
+					end: "90% center",
+					scrub: 0.5,
+					toggleActions: "play pause play reverse",
+					invalidateOnRefresh: false,
+					// markers: true,
+				},
 			},
-		});
+			"start"
+		);
 	return scroll;
 }

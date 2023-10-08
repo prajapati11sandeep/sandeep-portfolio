@@ -1,5 +1,5 @@
 @import "./variables";
-// @import "./variablesLight";
+
 @import "./mediaQuery";
 @import "./reset";
 @import "./animation";
@@ -12,32 +12,4 @@
 @import "./projects";
 @import "./contact";
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
-@media (prefers-reduced-motion: no-preference) {
-	:root {
-		scroll-behavior: smooth;
-	}
-}
-body {
-	margin: 0;
-	font-family: var(--fontFamily);
-	font-size: 1rem;
-	font-weight: var(--fontWeight);
-	line-height: var(--lineHeight);
-	color: var(--bodyColor);
-	background-color: var(--bodyBg);
-	-webkit-text-size-adjust: 100%;
-	-webkit-tap-highlight-color: rgba(14, 14, 14, 0);
-	scroll-behavior: smooth;
-	opacity: 0;
-	background-size: 20%;
-	background-repeat: repeat;
-	background-position: center;
-	@include devices("mobile") {
-		background-size: 100%;
-	}
-}
+@import "./footer";

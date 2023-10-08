@@ -2,15 +2,6 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 @import url("https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css");
 
-//Common Variables
-:root {
-	--fontFamily: "Roboto Condensed", sans-serif;
-	--fontWeight: 400;
-	--lineHeight: 1.5;
-	--spacing: 8;
-	--transition: all 0.3s ease-out;
-}
-
 //Dark Theme variables
 $bodyColorDark: #e8eaed !default;
 $bodyColorRGBDark: rgba($bodyColorDark, 0) !default;
@@ -32,6 +23,27 @@ $blackLight: #fff !default;
 $OpacityLight03: rgba(darken($darkColorLight, 10%), 0.3);
 $OpacityLight05: rgba(lighten($darkColorLight, 12%), 0.5);
 $bodyColorLight03: rgba($bodyColorLight, 0.3);
+
+//Common Variables
+$focusColor: #007aff;
+$rgbFocusColor: rgba($focusColor, 0.8);
+
+//Breakpoints
+$mobile: 35.999rem;
+$mobileLandscape: 47.999rem;
+$tablet: 61.999rem;
+$desktop: 74.999rem;
+$largeDesktop: 87.499rem;
+
+:root {
+	--fontFamily: "Roboto Condensed", sans-serif;
+	--fontWeight: 400;
+	--lineHeight: 1.5;
+	--spacing: 8;
+	--transition: all 0.3s ease-out;
+	--focusColor: #{$focusColor};
+	--focusShadow: 0 0 0 0.25rem #{$rgbFocusColor};
+}
 
 html[data-theme="light"] {
 	--bodyColor: #{$bodyColorLight};
@@ -63,10 +75,3 @@ html[data-theme="dark"] {
 		background-image: url(../assets/images/bg.webp);
 	}
 }
-
-//Breakpoints
-$mobile: 35.999rem;
-$mobileLandscape: 47.999rem;
-$tablet: 61.999rem;
-$desktop: 74.999rem;
-$largeDesktop: 87.499rem;

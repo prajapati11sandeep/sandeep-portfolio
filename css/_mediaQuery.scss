@@ -28,4 +28,10 @@
 			@content;
 		}
 	}
+
+	@if $breakpoint == "tabletToDesktop" {
+		@media (min-width: $tablet) {
+			@content;
+		}
+	}
 }
